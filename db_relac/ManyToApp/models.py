@@ -15,3 +15,10 @@ class Carro(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class Linguagem(models.Model):
+    nome = models.CharField(max_length = 100)
+    pessoa = models.ManyToManyField("Pessoa", related_name="linguagem")
+
+    def __str__(self):
+        return self.nome
