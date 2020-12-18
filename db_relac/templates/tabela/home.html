@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas SGBD</title>
+    <style>
+        table, th, tr {
+            border: 2px solid black;
+            background-color:rgb(128, 204, 228);
+            }
+    </style>
+</head>
+<body>
+    
+            <table>
+                <th>Pessoas</th>
+                {% for pessoa in pessoas %}
+                <tr>
+                    <td> {{pessoa.id}}</td>
+                    <td> {{pessoa.nome}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    
+            <table>
+                <th>Carros</th>
+                {% for carro in carros %}
+                <tr>
+                    <td> {{carro.id}}</td>
+                    <td> {{carro.nome}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    
+        
+    
+            <table>
+                <th>Linguagens</th>
+                {% for linguagem in linguagens %}
+                <tr>
+                    <td> {{linguagem.id}}</td>
+                    <td> {{linguagem.nome}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+    
+    
+</body>
+</html>
