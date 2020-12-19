@@ -1,5 +1,6 @@
 from django.contrib import admin
-from ManyToApp.models import Pessoa, Carro, Linguagem
+
+from .models import Pessoa, Carro, Linguagem
                         
 
                         
