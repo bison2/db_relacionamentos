@@ -14,11 +14,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include 
 from ManyToApp import views
+from .views import (
+                    home_page, 
+                    about_page, 
+                    contact_page, 
+                    login_page, 
+                    logout_page,
+                    register_page
+                    )
+#from relacionamentos.src.db_relac.db_relac import settings
+#from django.templatetags.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
+    path('', home_page, name='home'),
+    path('about/', about_page, name='about'),
+    path('contact/', contact_page, name='contact'),
+    path('login/', login_page, name='login'),
+    path('logout/', logout_page, name='logout'),
+    path('register/', register_page, name='register'),
+    #path('products/', include("app_produtos.urls", namespace="products")),
 ]
+
+#if settings.DEBUG:
+ #   urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+  #  urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
