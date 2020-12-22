@@ -10,8 +10,16 @@ class PessoaManager(models.Manager):
     def tudo(self):
         return self.get_queryset().order_by('nome')
 
+class CarroManager(models.Manager):
     def car(self):
         return self.get_queryset().order_by('nome')
+    
+   # def pessoa_carro(self):
+    #    p1 = Pessoa.objects.get(nome="Luzia Lisboa")
+     #   p1.carro
+      #  return self.p1.carro.all()
+
+class LinguagemManager(models.Manager):
 
     def linguagem(self):
         return self.get_queryset().order_by('nome')
@@ -24,15 +32,11 @@ class Pessoa(models.Model):
     def __str__(self):
         return self.nome
 
-
-
-
-
 class Carro(models.Model):
     nome = models.CharField(max_length = 30)
     pessoa = models.ForeignKey("Pessoa", on_delete=CASCADE, related_name="carro")
 
-    objects = PessoaManager()
+    objects = CarroManager()
 
     def __str__(self):
         return self.nome
@@ -41,7 +45,7 @@ class Linguagem(models.Model):
     nome = models.CharField(max_length = 100)
     pessoa = models.ManyToManyField("Pessoa", related_name="linguagem")
 
-    objects = PessoaManager()
+    objects = LinguagemManager()
 
     def __str__(self):
         return self.nome

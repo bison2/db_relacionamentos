@@ -3,7 +3,8 @@
 {% block content %}
     <div class="grid-container">
         <div class="row ">
-        <div class="col-4">
+       
+        <div class="col">
             <table class="table table-hover">
                 <thead>
                     <tr class="bg-primary text-warning">
@@ -22,27 +23,8 @@
             </table>
         </div> 
 
-        <div class="col-4">
-            <table class="table table-hover">
-                <thead>
-                    <tr class="bg-primary text-warning">
-                    
-                        <th scope="col">Id</th>
-                        <th scope="col">{{pss}}</th>
-                    </tr>
-                </thead>
-                <tbody class="table-danger">
-                    {% for p1 in p1s %}
-                <tr>
-                    <td> {{p1.id}}</td>
-                    <td> {{p1.nome}}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div> 
-
-        <div class="col-4">
+        
+        <div class="col">
             <table class="table table-hover">
                 <thead>
                     <tr class="bg-success text-light">
@@ -62,7 +44,7 @@
             </table>
         </div>
         
-        <div class="col-4">
+        <div class="col">
             <table class="table table-striped">
                 <thead>
                     <tr class=" text-padrao">
@@ -81,10 +63,24 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
-    
+        <div class="col text-center">
+        <table class="table table-hover">
+            <thead>
+                <tr class="bg-primary text-warning">
+                    <th scope="col">{{pss}}</th>
+                </tr>
+            </thead>
+            <tbody class="table-danger">
+                {% for p1 in p1s %}
+            <tr>
+                <td> {{p1.nome}}</td>
+            </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div> 
+        
+        </div>
     </div>
-
-</div>
 {% endblock %}

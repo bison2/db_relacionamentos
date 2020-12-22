@@ -5,12 +5,11 @@ from .models import Pessoa,Carro, Linguagem
 
 def home(request):
     pessoa_data = Pessoa.objects.tudo()
-
     carro_data = Carro.objects.car()
-    ling_data = Linguagem.objects.all()
-   
-    p1 = Pessoa.objects.get(nome="Luzia Lisboa")
-    p1.carro
+    ling_data = Linguagem.objects.linguagem()
+
+    p1 = Pessoa.objects.get(nome="Ribson")
+    p1.carro 
     p1_data = p1.carro.all()
 
     return render(request, 'tabela/home.html', {
@@ -18,6 +17,6 @@ def home(request):
                     'carros': carro_data,
                     'linguagens': ling_data,
                     'p1s':p1_data,
-                    'pss':p1
+                    'pss':p1                  
                     }
             )
