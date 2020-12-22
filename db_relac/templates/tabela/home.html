@@ -1,73 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabelas SGBD</title>
-    <style>
-        table, tr {
-            padding: 20px;
-            margin:10px;
-            border: 2px solid black;
-            
-            }
-        .grid-container {
-            display: grid;
-            grid-template-columns: auto auto auto auto;
-            grid-gap: 10px;
-            background-color: #2196F3;
-            padding: 10px;
-            }
+{% extends "base.html" %}
 
-            .grid-container > div {
-            background-color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            padding: 20px 0;
-            font-size: 30px;
-            }
-    </style>
-</head>
-<body>
+{% block content %}
     <div class="grid-container">
-        <div>
-            <table>
-                <th>Id</th>
-                <th>Pessoas</th>
-
-                {% for pessoa in pessoas %}
+        <div class="row ">
+        <div class="col-4">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="bg-primary text-warning">
+                        <th scope="col">Id</th>
+                        <th scope="col">Pessoas</th>
+                    </tr>
+                </thead>
+                <tbody class="table-danger">
+               {% for pessoa in pessoas %}
                 <tr>
                     <td> {{pessoa.id}}</td>
                     <td> {{pessoa.nome}}</td>
                 </tr>
                 {% endfor %}
+                </tbody>
             </table>
         </div> 
 
-        <div>
-            <table>
-                <th>Id</th>
-                <th>Carros</th>
-                {% for carro in carros %}
+        <div class="col-4">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="bg-primary text-warning">
+                    
+                        <th scope="col">Id</th>
+                        <th scope="col">{{pss}}</th>
+                    </tr>
+                </thead>
+                <tbody class="table-danger">
+                    {% for p1 in p1s %}
                 <tr>
-                    <td> {{carro.id}}</td>
-                    <td> {{carro.nome}}</td>
+                    <td> {{p1.id}}</td>
+                    <td> {{p1.nome}}</td>
                 </tr>
                 {% endfor %}
+                </tbody>
+            </table>
+        </div> 
+
+        <div class="col-4">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="bg-success text-light">
+                        <th scope="col">Id</th>
+                        <th scope="col">Carros</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table-warning">
+                    {% for carro in carros %}
+                    <tr>
+                        <td> {{carro.id}}</td>
+                        <td> {{carro.nome}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
         
-        <div>
-            <table>
-                <th>Id</th>
-                <th>Linguagens</th>
-                {% for linguagem in linguagens %}
-                <tr>
-                    <td> {{linguagem.id}}</td>
-                    <td> {{linguagem.nome}}</td>
-                </tr>
-                {% endfor %}
+        <div class="col-4">
+            <table class="table table-striped">
+                <thead>
+                    <tr class=" text-padrao">
+                        <th>Id</th>
+                        <th>Linguagens</th>
+                    <tr>
+                </thead>
+
+                <tbody class="table-dark">
+                    {% for linguagem in linguagens %}
+                    <tr>
+                        <td> {{linguagem.id}}</td>
+                        <td> {{linguagem.nome}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
         </div>
     </div>
-</body>
-</html>
+
+    
+    </div>
+
+</div>
+{% endblock %}
