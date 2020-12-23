@@ -8,15 +8,12 @@ def home(request):
     carro_data = Carro.objects.car()
     ling_data = Linguagem.objects.linguagem()
 
-    p1 = Pessoa.objects.get(nome="Ribson")
-    p1.carro 
-    p1_data = p1.carro.all()
-
+    p_carro_data = Pessoa.objects.p_car()
+       
     return render(request, 'tabela/home.html', {
                     'pessoas':pessoa_data,
                     'carros': carro_data,
                     'linguagens': ling_data,
-                    'p1s':p1_data,
-                    'pss':p1                  
+                    'pessoas': p_carro_data,
                     }
             )

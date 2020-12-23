@@ -68,13 +68,20 @@
         <table class="table table-hover">
             <thead>
                 <tr class="bg-primary text-warning">
-                    <th scope="col">{{pss}}</th>
+                    <th scope="col">Nomes</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Carros</th>
                 </tr>
             </thead>
             <tbody class="table-danger">
-                {% for p1 in p1s %}
+                {% for p in pessoas %}
             <tr>
-                <td> {{p1.nome}}</td>
+                <td> {{p.nome}}</td>
+                <td> {{p.carro.count}}</td>
+                {% for e in p.carro.all %}
+                <td> {{e.nome}}</td>
+                {% endfor %}
+            
             </tr>
                 {% endfor %}
             </tbody>

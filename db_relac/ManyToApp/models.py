@@ -10,15 +10,15 @@ class PessoaManager(models.Manager):
     def tudo(self):
         return self.get_queryset().order_by('nome')
 
+    def p_car(self):
+        return self.get_queryset().prefetch_related('carro').all()
+    
+
 class CarroManager(models.Manager):
+    
     def car(self):
         return self.get_queryset().order_by('nome')
     
-   # def pessoa_carro(self):
-    #    p1 = Pessoa.objects.get(nome="Luzia Lisboa")
-     #   p1.carro
-      #  return self.p1.carro.all()
-
 class LinguagemManager(models.Manager):
 
     def linguagem(self):
