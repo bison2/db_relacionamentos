@@ -13,6 +13,9 @@ class PessoaManager(models.Manager):
     def p_car(self):
         return self.get_queryset().prefetch_related('carro').all()
     
+    def p_ling(self):
+        return self.get_queryset().prefetch_related('linguagem').all()
+    
 
 class CarroManager(models.Manager):
     

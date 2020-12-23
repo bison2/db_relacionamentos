@@ -9,11 +9,13 @@ def home(request):
     ling_data = Linguagem.objects.linguagem()
 
     p_carro_data = Pessoa.objects.p_car()
-       
+    p_ling_data = Pessoa.objects.p_ling()
+
     return render(request, 'tabela/home.html', {
                     'pessoas':pessoa_data,
                     'carros': carro_data,
                     'linguagens': ling_data,
                     'pessoas': p_carro_data,
+                    'p_lings': p_ling_data,
                     }
             )
