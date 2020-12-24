@@ -1,103 +1,103 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="grid-container">
+    <div class="container">
         <div class="row ">
-       
-        <div class="col-4">
-            <table class="table table-hover">
-                <thead>
-                    <tr class="bg-primary text-warning">
-                        <th scope="col">Id</th>
-                        <th scope="col">Pessoas</th>
-                    </tr>
-                </thead>
-                <tbody class="table-secondary">
-               {% for pessoa in pessoas %}
-                <tr>
-                    <td> {{pessoa.id}}</td>
-                    <td> {{pessoa.nome}}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div> 
-
-        
-        <div class="col-4">
-            <table class="table table-hover">
-                <thead>
-                    <tr class="bg-success text-light">
-                        <th scope="col">Id</th>
-                        <th scope="col">Carros</th>
-                    </tr>
-                </thead>
-
-                <tbody class="table-warning">
-                    {% for carro in carros %}
+            <h2 class="col-12 bg-primary text-warning text-center">Tabelas de Pessoas, Carros, e Linguagens</h2>
+            <div class="col-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-primary text-warning">
+                            <th scope="col">Id</th>
+                            <th scope="col">Pessoas</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-secondary">
+                {% for pessoa in pessoas %}
                     <tr>
-                        <td> {{carro.id}}</td>
-                        <td> {{carro.nome}}</td>
+                        <td> {{pessoa.id}}</td>
+                        <td> {{pessoa.nome}}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="col-4">
-            <table class="table table-striped">
-                <thead>
-                    <tr class=" text-padrao">
-                        <th>Id</th>
-                        <th>Linguagens</th>
-                    <tr>
-                </thead>
+                    </tbody>
+                </table>
+            </div> 
 
-                <tbody class="table-dark">
-                    {% for linguagem in linguagens %}
-                    <tr>
-                        <td> {{linguagem.id}}</td>
-                        <td> {{linguagem.nome}}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            
+            <div class="col-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-success text-light">
+                            <th scope="col">Id</th>
+                            <th scope="col">Carros</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="table-warning">
+                        {% for carro in carros %}
+                        <tr>
+                            <td> {{carro.id}}</td>
+                            <td> {{carro.nome}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="col-4">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class=" text-padrao">
+                            <th>Id</th>
+                            <th>Linguagens</th>
+                        <tr>
+                    </thead>
+
+                    <tbody class="table-dark">
+                        {% for linguagem in linguagens %}
+                        <tr>
+                            <td> {{linguagem.id}}</td>
+                            <td> {{linguagem.nome}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
 
-        
+        <div class="row">
+            <h2 class="col-12 bg-primary text-warning text-center">Relações de Pessoas e Carros</h2>
+            <div class="col-12 text-center">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-primary text-warning">
+                            <th scope="col">Nomes</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Carros</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-danger">
+                        {% for p in pessoas %}
+                    <tr>
+                        <td> {{p.nome}}</td>
+                        <td> {{p.carro.count}}</td>
+                        {% for e in p.carro.all %}
+                        <td> {{e.nome}}</td>
+                        {% endfor %}
+                    </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> 
+        </div>
 
-        <div class="col-12 text-center">
-        <table class="table table-hover">
-            <thead>
-                <tr class="bg-primary text-warning">
-                    <th scope="col">Nomes</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Carros</th>
-                </tr>
-            </thead>
-            <tbody class="table-danger">
-                {% for p in pessoas %}
-            <tr>
-                <td> {{p.nome}}</td>
-                <td> {{p.carro.count}}</td>
-                {% for e in p.carro.all %}
-                <td> {{e.nome}}</td>
-                {% endfor %}
-            
-            </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        </div> 
+    <div class="container">
+        <div class="row">
         
-
-        
-         
-        <div class="col-5 text-center">
-            
+        {% for p in p_carros %} 
+        <div class="col-4 text-center">
             <table class="table table-hover">
-                {% for p in pessoas %} 
+               
                 <thead>
                     
                     <tr class="bg-primary text-warning">
@@ -114,37 +114,38 @@
                     </tr>
                     {% endfor %}
                 </tbody>
-                {% endfor %}
-            </table>
-            
-            </div> 
-
-            <div class="col-5 text-center">
-            
-                <table class="table table-hover">
-                    {% for p in p_lings %} 
-                    <thead>
-                        
-                        <tr class="bg-primary text-warning">
-                            
-                            <th scope="col"> {{p.nome}} sabe {{p.linguagem.count}} linguagens</th>
-                        </tr>
-                        
-                    </thead>
-                    <tbody class="table-warning">
-                                          
-                        {% for e in p.linguagem.all %}
-                        <tr>
-                            <td> {{e.nome}}</td> 
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                    {% endfor %}
-                </table>
                 
-                </div> 
-            
-        
+            </table>
+        </div> 
+        {% endfor %}
+        </div>
     </div>
-    
+
+    <div class="container">
+        <div class="row">
+        <h2 class="col-12 bg-primary text-warning text-center">Relações de Pessoas e Linguagens</h2>
+        {% for p in p_lings %} 
+        <div class="col-4 text-center">
+            <table class="table table-hover">
+                
+                <thead>
+                    <tr class="bg-primary text-warning">
+                        <th scope="col"> {{p.nome}} sabe {{p.linguagem.count}} linguagens</th>
+                    </tr>
+                </thead>
+                <tbody class="table-warning">
+                    {% for e in p.linguagem.all %}
+                    <tr>
+                        <td> {{e.nome}}</td> 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                    
+            </table>
+        </div> 
+        {% endfor %}
+
+        </div>
+    </div>
+</div>    
 {% endblock %}

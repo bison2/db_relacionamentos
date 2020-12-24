@@ -11,10 +11,10 @@ class PessoaManager(models.Manager):
         return self.get_queryset().order_by('nome')
 
     def p_car(self):
-        return self.get_queryset().prefetch_related('carro').all()
+        return self.get_queryset().prefetch_related('carro').all().order_by('nome')
     
     def p_ling(self):
-        return self.get_queryset().prefetch_related('linguagem').all()
+        return self.get_queryset().prefetch_related('linguagem').all().order_by('nome')
     
 
 class CarroManager(models.Manager):

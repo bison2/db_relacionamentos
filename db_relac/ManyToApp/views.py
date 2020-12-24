@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Pessoa,Carro, Linguagem
+from .models import Pessoa, Carro, Linguagem
 
 # Create your views here.
 
@@ -15,7 +15,7 @@ def home(request):
                     'pessoas':pessoa_data,
                     'carros': carro_data,
                     'linguagens': ling_data,
-                    'pessoas': p_carro_data,
+                    'p_carros': p_carro_data,
                     'p_lings': p_ling_data,
                     }
             )
