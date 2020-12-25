@@ -34,11 +34,18 @@ class Pessoa(models.Model):
 
     def __str__(self):
         return self.nome
+    
+class P_fisica(Pessoa):
+    cpf = models.CharField(max_length = 11)
+
+class P_juridica(Pessoa):
+    cnpj = models.CharField(max_length = 11)
+
 
 class Carro(models.Model):
     nome = models.CharField(max_length = 30)
     pessoa = models.ForeignKey("Pessoa", on_delete=CASCADE, related_name="carro")
-
+   
     objects = CarroManager()
 
     def __str__(self):

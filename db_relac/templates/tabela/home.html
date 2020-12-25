@@ -13,7 +13,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-secondary">
-                {% for pessoa in pessoas %}
+                    {% for pessoa in pessoas %}
                     <tr>
                         <td> {{pessoa.id}}</td>
                         <td> {{pessoa.nome}}</td>
@@ -76,7 +76,7 @@
                             <th scope="col">Carros</th>
                         </tr>
                     </thead>
-                    <tbody class="table-danger">
+                    <tbody class="table-dark">
                         {% for p in pessoas %}
                     <tr>
                         <td> {{p.nome}}</td>
@@ -97,27 +97,21 @@
         {% for p in p_carros %} 
         <div class="col-4 text-center">
             <table class="table table-hover">
-               
                 <thead>
-                    
-                    <tr class="bg-primary text-warning">
-                        
-                        <th scope="col"> {{p.nome}} tem {{p.carro.count}} carros</th>
-                    </tr>
-                    
+                <tr class="bg-primary text-warning">
+                    <th scope="col"> {{p.nome}} tem {{p.carro.count}} carros</th>
+                </tr>
                 </thead>
                 <tbody class="table-warning">
-                                      
                     {% for e in p.carro.all %}
                     <tr>
-                        <td> {{e.nome}}</td> 
+                       <td> {{e.nome}}</td> 
                     </tr>
                     {% endfor %}
                 </tbody>
-                
             </table>
-        </div> 
-        {% endfor %}
+            </div> 
+            {% endfor %}
         </div>
     </div>
 
@@ -127,7 +121,6 @@
         {% for p in p_lings %} 
         <div class="col-4 text-center">
             <table class="table table-hover">
-                
                 <thead>
                     <tr class="bg-primary text-warning">
                         <th scope="col"> {{p.nome}} sabe {{p.linguagem.count}} linguagens</th>
@@ -140,11 +133,9 @@
                     </tr>
                     {% endfor %}
                 </tbody>
-                    
             </table>
         </div> 
         {% endfor %}
-
         </div>
     </div>
 </div>    
