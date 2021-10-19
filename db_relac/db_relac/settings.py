@@ -25,7 +25,7 @@ SECRET_KEY = 'y!zi%pz&aszvjfj_wa1@s^pvlaj8lo%c^k4bijpfdqge=ar56e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.localhost' ]
 
 
 # Application definition
@@ -107,9 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -131,3 +131,13 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "static_root
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")
+
+#DATE_INPUT_FORMATS = ['%d/%m/%Y']
+#formatos padrão de datas aceitos
+#[
+ #   '%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', # '2006-10-25', '10/25/2006', '10/25/06'
+  #  '%b %d %Y', '%b %d, %Y',            # 'Oct 25 2006', 'Oct 25, 2006'
+   # '%d %b %Y', '%d %b, %Y',            # '25 Oct 2006', '25 Oct, 2006'
+   # '%B %d %Y', '%B %d, %Y',            # 'October 25 2006', 'October 25, 2006'
+    #'%d %B %Y', '%d %B, %Y',            # '25 October 2006', '25 October, 2006'
+#]

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row ">
             <h2 class="col-12 bg-primary text-warning text-center">Tabelas de Pessoas, Carros, e Linguagens</h2>
-            <div class="col-4">
+            <div class="col-sm-4">
                 <table class="table table-hover">
                     <thead>
                         <tr class="bg-primary text-warning">
@@ -24,12 +24,15 @@
             </div> 
 
             
-            <div class="col-4">
+            <div class="col-sm-4">
                 <table class="table table-hover">
                     <thead>
                         <tr class="bg-success text-light">
                             <th scope="col">Id</th>
                             <th scope="col">Carros</th>
+                            <th scope="col">data de compra</th>
+                            <th scope="col">info</th>
+
                         </tr>
                     </thead>
 
@@ -38,13 +41,15 @@
                         <tr>
                             <td> {{carro.id}}</td>
                             <td> {{carro.nome}}</td>
+                            <td> {{carro.data_compra}}</td>
+                            <td> {{carro.info}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
             
-            <div class="col-4">
+            <div class="col-sm-4">
                 <table class="table table-striped">
                     <thead>
                         <tr class=" text-padrao">
@@ -65,9 +70,9 @@
             </div>
         </div>
 
-        <div class="row">
+    <div class="row">
             <h2 class="col-12 bg-primary text-warning text-center">Relações de Pessoas e Carros</h2>
-            <div class="col-12 text-center">
+            <div class="col-sm-8 mx-auto text-center">
                 <table class="table table-hover">
                     <thead>
                         <tr class="bg-primary text-warning">
@@ -95,7 +100,7 @@
         <div class="row">
         
         {% for p in p_carros %} 
-        <div class="col-4 text-center">
+        <div class="col-sm-4 text-center">
             <table class="table table-hover">
                 <thead>
                 <tr class="bg-primary text-warning">
@@ -117,26 +122,32 @@
 
     <div class="container">
         <div class="row">
-        <h2 class="col-12 bg-primary text-warning text-center">Relações de Pessoas e Linguagens</h2>
-        {% for p in p_lings %} 
-        <div class="col-4 text-center">
-            <table class="table table-hover">
-                <thead>
-                    <tr class="bg-primary text-warning">
-                        <th scope="col"> {{p.nome}} sabe {{p.linguagem.count}} linguagens</th>
-                    </tr>
-                </thead>
-                <tbody class="table-warning">
-                    {% for e in p.linguagem.all %}
-                    <tr>
-                        <td> {{e.nome}}</td> 
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div> 
-        {% endfor %}
+        <h2 class="col-sm-10 mx-auto bg-primary text-warning text-center">Relações de Pessoas e Linguagens</h2>
+       
         </div>
-    </div>
+        </div>
+        
+        <div class="row">
+            {% for p in p_lings %} 
+            <div class="col-sm-4 text-center">
+                
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-primary text-warning">
+                            <th scope="col"> {{p.nome}} sabe {{p.linguagem.count}} linguagens</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-warning">
+                        {% for e in p.linguagem.all %}
+                        <tr>
+                            <td> {{e.nome}}</td> 
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> 
+            {% endfor %}
+        </div>
+    
 </div>    
 {% endblock %}

@@ -30,11 +30,11 @@ class LinguagemManager(models.Manager):
 class Pessoa(models.Model):
     nome = models.CharField(max_length = 100)
 
-    objects = PessoaManager() 
-
     def __str__(self):
         return self.nome
     
+    objects = PessoaManager()
+
 class P_fisica(Pessoa):
     cpf = models.CharField(max_length = 11)
 
@@ -45,7 +45,9 @@ class P_juridica(Pessoa):
 class Carro(models.Model):
     nome = models.CharField(max_length = 30)
     pessoa = models.ForeignKey("Pessoa", on_delete=CASCADE, related_name="carro")
-   
+    data_compra = models.DateTimeField( null=True, blank=True)
+    info=models.TextField(null=True, blank=True)
+
     objects = CarroManager()
 
     def __str__(self):
